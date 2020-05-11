@@ -1,0 +1,14 @@
+name: A workflow for ensuring credentials are not in file
+on: push
+jobs:
+  build:
+    name: Cred Checker
+    runs-on: ubuntu-latest
+    steps:        
+       - uses: actions/checkout@master
+       - name: Haydn trufflehog-actions-scan
+         uses: haydz/trufflehog-actions-scan@master
+         with:
+           branch: ${{ github.head_ref }}
+           scanArguments: "--regex --max_depth=10  --rules /regexes.json"
+           #test runs
