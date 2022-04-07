@@ -6,8 +6,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:        
        - uses: actions/checkout@master
-       - name: Haydn trufflehog-actions-scan
-         uses: haydz/trufflehog-actions-scan@master
+       - name: trufflehog-actions-scan
+         uses: edplato/trufflehog-actions-scan@master
          with:
            branch: ${{ github.head_ref }}
            scanArguments: "--regex --max_depth=10  --rules /regexes.json"
